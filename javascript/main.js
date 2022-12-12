@@ -15,6 +15,14 @@ butt.addEventListener("click", function () {
     loaded();
   } else {
     image.addEventListener("load", loaded);
+    image.addEventListener("error", function () {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Wrong URL!",
+      });
+      document.querySelector("svg").style.opacity = "0";
+    });
   }
 });
 function loaded() {
